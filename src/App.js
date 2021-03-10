@@ -31,8 +31,12 @@ function App() {
       </div>
 
       <div className="division-tablero">
-        <Tablero/>
-        <Graficas/>
+        <div className="columna-tablero">
+          <Tablero/>
+        </div>
+        <div className="columna-tablero">
+          <Graficas/>
+        </div>
       </div>
     
       <Switch>

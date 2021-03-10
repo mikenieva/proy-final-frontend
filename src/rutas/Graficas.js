@@ -91,7 +91,7 @@ export default function Graficas() {
         <div>
                 <div className="App">
       <h1>Hello CodeSandbox</h1>
-      <div style={styles.relative}>
+      <div style={styles.relative} className="canvas-container">
         <Doughnut data={data} options={options} />
         <div style={styles.pieContainer}>
           
