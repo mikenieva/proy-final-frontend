@@ -90,7 +90,7 @@ export default function Graficas() {
     return (
         <div>
                 <div className="App">
-      <h1>Hello CodeSandbox</h1>
+      <h1>Gráfica de Gastos</h1>
       <div style={styles.relative} className="canvas-container">
         <Doughnut data={data} options={options} />
         <div style={styles.pieContainer}>
