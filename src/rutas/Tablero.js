@@ -10,29 +10,54 @@ export default function Tablero() {
     return (
         <div>
   
-  <main>
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-      antes de la caja{/* <!-- Replace with your content --> */}
-      <div class="px-4 py-6 sm:px-0">
-  
-        <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
-        
-<div class="flex justify-end">
-        <button type="button" class="mt-3 mr-3  items-center p-2 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            {/* <!-- Heroicon name: outline/plus --> */}
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-        </button>
-        
-</div>
+<main>
+    <div class="mx-auto py-3 ">
+      
+        <div id="Contenedor de tarjetas y gráficas"class="flex justify-center max-w-max">
+                
+                    <div id="Contenedor ing y pres" class="space-y-3 px-4 py-1 max-w-4xl">
+                        <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
+                            <div class="px-4 py-3 ">
+                                Ingresos es un apartado importante{/* <!-- Content goes here -->
+                                <!-- We use less vertical padding on card headers on desktop than on body sections --> */}
+                            </div>
+
+                            <div class= "space-y-0">
+                                <div class="px-4 py-2">
+                                    Sueldo{/* <!-- Content goes here --> */}
+                                </div>
+                                <div class="px-4 py-2 ">
+                                    Comisiones{/* <!-- Content goes here --> */}
+                                </div>
+                                <div class="px-4 py-2 ">
+                                    Propinas{/* <!-- Content goes here --> */}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
+                            <div class="px-4 py-5 sm:px-6">
+                                Presupuestos{/* <!-- Content goes here -->
+                                <!-- We use less vertical padding on card headers on desktop than on body sections --> */}
+                            </div>
+                                <div class="px-4 py-5 sm:p-6">
+                                    Renta{/* <!-- Content goes here --> */}
+                                </div>
+                        </div>
+
+                    </div>
+
+                    <div id="Columna de gráficas" class="max-w-md">
+
+                    </div>
+            <div/>
 
         </div>
-      
-      </div>
+
       después de la caja{/* <!-- /End replace --> */}
+    
     </div>
-  </main>
+</main>
 
         </div>
     )
