@@ -3,6 +3,17 @@
   flex-direction:row;
 }
 
+.division-tablero {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+
+
+}
+
 #legend li span {
   width: 36px;
   height: 12px;

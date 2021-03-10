@@ -29,14 +29,17 @@ function App() {
       <div>
           <Header/>
       </div>
+
+      <div className="division-tablero">
+        <Tablero/>
+        <Graficas/>
+      </div>
     
       <Switch>
           <Route exact path="/usuarios/:id/editar-perfil" component={EditarPerfil}/>
-          <Route exact path="/graficas/:id" component={Graficas}/>
           <Route exact path="/auth" component={IniciarSesion}/>
           <Route exact path="/usuarios/registro" component={Registro}/>
           <Route exact path="/usuarios/registro-exitoso" component={RegistroExitoso}/>
-          <Route exact path="/usuarios/tablero/:id" component={Tablero}/>
           <Route exact path="/gastos/:id" component={Transaccion}/>
 
 

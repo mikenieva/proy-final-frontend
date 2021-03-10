@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { Doughnut, Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { chartColors } from "../colors.js";
 import "../App.css";
 
@@ -13,7 +13,7 @@ export default function Graficas() {
 
     const options = {
         legend: {
-          display: false,
+          display: true,
           position: "right"
         },
         elements: {
@@ -94,13 +94,7 @@ export default function Graficas() {
       <div style={styles.relative}>
         <Doughnut data={data} options={options} />
         <div style={styles.pieContainer}>
-          <Pie
-            data={data}
-            options={pieOptions}
-            ref={input => {
-              chartInstance = input;
-            }}
-          />
+          
         </div>
         <div id="legend" />
       </div>
