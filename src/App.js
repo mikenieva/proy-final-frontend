@@ -10,7 +10,7 @@ import './App.css';
 import Header from './components/Header'
 import Ingresos from './components/Ingresos'
 import Presupuestos from './components/Presupuestos'
-import Sidebar from './components/Sidebar'
+import Sidebar from './components/Header'
 
 import EditarPerfil from './rutas/EditarPerfil'
 import Graficas from './rutas/Graficas'
@@ -29,15 +29,7 @@ function App() {
       <div>
           <Header/>
       </div>
-hola soy el front
-      <div>
-          <Sidebar/>
-      </div>
-
-      <div>
-          <Tablero/>
-      </div>
-
+    
       <Switch>
           <Route exact path="/usuarios/:id/editar-perfil" component={EditarPerfil}/>
           <Route exact path="/graficas:id/graficas" component={Graficas}/>
