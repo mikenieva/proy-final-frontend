@@ -1,24 +1,63 @@
-import logo from './logo.svg';
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
+
 import './App.css';
+
+import Header from './components/Header'
+import Ingresos from './components/Ingresos'
+import Presupuestos from './components/Presupuestos'
+import Sidebar from './components/Sidebar'
+
+import EditarPerfil from './rutas/EditarPerfil'
+import Graficas from './rutas/Graficas'
+import IniciarSesion from './rutas/IniciarSesion'
+import Registro from './rutas/Registro'
+import RegistroExitoso from './rutas/RegistroExitoso'
+import Tablero from './rutas/Tablero'
+import Transaccion from './rutas/Transaccion'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+
+      <div>
+          <Header/>
+      </div>
+hola soy el front
+      <div>
+          <Sidebar/>
+      </div>
+
+      <div>
+          <Tablero/>
+      </div>
+
+      <Switch>
+          <Route exact path="/usuarios/:id/editar-perfil" component={EditarPerfil}/>
+          <Route exact path="/graficas:id/graficas" component={Graficas}/>
+          <Route exact path="/auth" component={IniciarSesion}/>
+          <Route exact path="/usuarios/registro" component={Registro}/>
+          <Route exact path="/usuarios/registro-exitoso" component={RegistroExitoso}/>
+          <Route exact path="/usuarios/tablero/:id" component={Tablero}/>
+          <Route exact path="/gastos/:id" component={Transaccion}/>
+
+
+
+
+
+
+      </Switch>
+
+    
+     </Router>
+
+    </>
   );
 }
 
