@@ -16,6 +16,7 @@ export default function IngresosYPresupuestos() {
                 
                     <div id="Contenedor ing y pres" class="space-y-3 px-4 py-1 max-w-4xl">
                         <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
+                            
                             <div class="px-4 py-3 text-gray-900 bg-c-yellow hover:bg-c-peach">
                                 Ingresos [$ Ingreso Total]
                             </div>

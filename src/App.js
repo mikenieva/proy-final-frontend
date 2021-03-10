@@ -19,22 +19,24 @@ import Transaccion from './rutas/Transaccion'
 function App() {
   return (
     <>
-    <Router>
+    <AuthState>
 
-    
-      <Switch>
-          <Route exact path="/" component={IniciarSesion}/>
-          <Route exact path="/registro" component={Registro}/>
-          <Route exact path="/registro-exitoso" component={RegistroExitoso}/>
-          <Route exact path="/gastos/:id" component={Transaccion}/>
-          <Route exact path="/usuarios/:id" component={Tablero}/>
-          <Route exact path="/editar-perfil/:id" component={EditarPerfil}/>
+        <Router>
+ 
+          <Switch>
+              <Route exact path="/" component={IniciarSesion}/>
+              <Route exact path="/registro" component={Registro}/>
+              <Route exact path="/registro-exitoso" component={RegistroExitoso}/>
+              <Route exact path="/gastos/:id" component={Transaccion}/>
+              <Route exact path="/usuarios/:id" component={Tablero}/>
+              <Route exact path="/editar-perfil/:id" component={EditarPerfil}/>
 
+          </Switch>
 
-      </Switch>
+        </Router>
 
-     
-    </Router>
+    </AuthState>
+
     
 
     </>
