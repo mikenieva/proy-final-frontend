@@ -48,7 +48,7 @@ export default function Tablero() {
                     </div>
 
                     <div id="Columna de gráficas" class="max-w-md">
-
+                        
                     </div>
             <div/>
 
