@@ -17,37 +17,37 @@ export default function IngresosYPresupuestos() {
                     <div id="Contenedor ing y pres" class="space-y-3 px-4 py-1 max-w-4xl">
                         <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
                             
-                            <div class="px-4 py-3 text-gray-900 bg-c-yellow hover:bg-c-peach">
-                                Ingresos [$ Ingreso Total]
+                            <div class="px-4 py-3 font-bold text-gray-900 bg-c-yellow hover:bg-c-peach">
+                                    Ingresos    [Total: $ 9,800]
                             </div>
 
                             <div class= "space-y-0">
                                 <div class="px-4 py-2">
-                                    Sueldo [$ Cantidad]
+                                    Sueldo      [$ 8,100]
                                 </div>
                                 <div class="px-4 py-2 ">
-                                    Comisiones [$ Cantidad]
-                                </div>
-                                <div class="px-4 py-2 ">
-                                    Propinas [$ Cantidad]
+                                    Comisiones   [$ 1,700]
                                 </div>
                             </div>
                         </div>
 
                         <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
-                        <div class="px-4 py-3 text-gray-900 bg-c-yellow hover:bg-c-peach">
-                                Presupuestos [$ Total Presupuestado]
+                        <div class="px-4 py-3 text-gray-900 font-bold bg-c-yellow hover:bg-c-peach">
+                                    Presupuestos  [Total: $ 6,430]
                             </div>
 
                             <div class= "space-y-0">
                                 <div class="px-4 py-2">
-                                    Renta [$ Cantidad]
+                                    Renta          [$ 3,800]
                                 </div>
                                 <div class="px-4 py-2 ">
-                                    Comida [$ Cantidad]
+                                    Despensa       [$ 1,500]
                                 </div>
                                 <div class="px-4 py-2 ">
-                                    Transporte [$ Cantidad]
+                                    Transporte     [$ 750]
+                                </div>
+                                <div class="px-4 py-2 ">
+                                    Ahorro         [$ 380]
                                 </div>
                             </div>
 

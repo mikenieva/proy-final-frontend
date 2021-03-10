@@ -34,7 +34,7 @@ export default function Header() {
               <div>
                 <button type="button" class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-expanded="false" aria-haspopup="true">
                   <span class="sr-only">Open user menu</span>
-                  <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=J4TTyWeNKF&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+                  <img class="h-8 w-8 rounded-full" src="https://res.cloudinary.com/robtc/image/upload/v1615416915/PEPE_opekbj.png" alt=""/>
                 </button>
               </div>
 
@@ -92,11 +92,11 @@ export default function Header() {
       <div class="pt-4 pb-3 border-t border-gray-700">
         <div class="flex items-center px-5">
           <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=J4TTyWeNKF&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+            <img class="h-10 w-10 rounded-full" src="https://res.cloudinary.com/robtc/image/upload/v1615416915/PEPE_opekbj.png" alt=""/>
           </div>
           <div class="ml-3">
-            <div class="text-base font-medium leading-none text-white">Tom Cook</div>
-            <div class="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
+            <div class="text-base font-medium leading-none text-white">Pepe Martínez</div>
+            <div class="text-sm font-medium leading-none text-gray-400">pepe@gmail.com</div>
           </div>
 
         </div>
@@ -111,11 +111,11 @@ export default function Header() {
           <h1 class="text-3xl font-bold text-gray-900">
             Marzo 2021
           </h1>
-          <p>Tienes aún $ por presupuestar</p>
+          <p>Te falta presupuestar $ 3,370</p>
         </div>
 
         <div class="flex justify-end mb-2 mt-2">
-            <button type="button" class=" mr-3 items-center p-2 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button type="button" class=" mr-3 items-center p-2 border border-transparent rounded-full shadow-sm text-gray-900 bg-c-yellow hover:bg-c-peach focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 {/* <!-- Heroicon name: outline/plus --> */}
                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />

@@ -50,28 +50,17 @@ export default function Graficas() {
       const data = {
         maintainAspectRatio: false,
         responsive: false,
-        labels: ["a", "b", "c", "d"],
+        labels: ["Renta", "Despensa", "Transporte", "Ahorro"],
         datasets: [
           {
-            data: [300, 50, 100, 50],
+            data: [3800, 1500, 750, 380],
             backgroundColor: chartColors,
             hoverBackgroundColor: chartColors
           }
         ]
       };
       
-      const pieData = {
-        maintainAspectRatio: false,
-        responsive: false,
-        labels: ["usa", "europe", "africa"],
-        datasets: [
-          {
-            data: [200, 150, 20, 10],
-            backgroundColor: chartColors,
-            hoverBackgroundColor: chartColors
-          }
-        ]
-      };
+      
     
       const styles = {
         pieContainer: {
@@ -90,7 +79,7 @@ export default function Graficas() {
     return (
         <div>
                 <div className="App">
-      <h1>Gráfica de Gastos</h1>
+      <h1 className="font-bold">Tu presupuesto en gráficas</h1>
       <div style={styles.relative} className="canvas-container">
         <Doughnut data={data} options={options} />
         <div style={styles.pieContainer}>

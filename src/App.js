@@ -15,6 +15,7 @@ import RegistroExitoso from './rutas/RegistroExitoso'
 import Tablero from './rutas/Tablero'
 import Transaccion from './rutas/Transaccion'
 
+import AuthState from './context/auth/AuthState'
 
 function App() {
   return (
