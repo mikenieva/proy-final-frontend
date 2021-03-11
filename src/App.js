@@ -16,6 +16,8 @@ import Tablero from './rutas/Tablero'
 import Transaccion from './rutas/Transaccion'
 
 import AuthState from './context/auth/AuthState'
+import AlertaState from './context/alertas/AlertaState'
+
 
 function App() {
   return (

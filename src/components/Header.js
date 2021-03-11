@@ -18,7 +18,7 @@ export default function Header() {
               {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
               <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Editar perfil</a>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Cerrar sesión</a>
+              <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Cerrar sesión</a>
 
 
 
@@ -84,7 +84,7 @@ export default function Header() {
         {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
         <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Editar perfil</a>
 
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Cerrar sesión</a>
+        <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Cerrar sesión</a>
 
 
 
