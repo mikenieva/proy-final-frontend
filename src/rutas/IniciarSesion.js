@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useContext, useEffect} from 'react'
 
 
@@ -14,20 +15,20 @@ export default function IniciarSesion(props) {
   // const {alerta, mostrarAlerta} = alertaContext
 
   const authContext = useContext(AuthContext)
+  const {mensaje, autenticado, iniciarSesion, usuarioAutenticado} = authContext;
 
-  const {mensaje, autenticado, iniciarSesion} = authContext;
 
   
   useEffect(()=>{
-    if(autenticado){
-      props.history.push('/usuarios')
-    }
-
-    // if(mensaje){
-    //   mostrarAlerta(mensaje.msg, mensaje.categoria)
-    // }
+    console.log("hola")
     
-  }, [mensaje, autenticado, props.history])
+    usuarioAutenticado() // Verifica si tengo token
+    
+    if(autenticado){
+      props.history.push('/usuarios') // REDIRECTS CON REACT-ROUTER-DOM
+    }
+    
+  }, [autenticado])
 
   // State para iniciar sesión
   const [usuario, guardarUsuario] = useState({
