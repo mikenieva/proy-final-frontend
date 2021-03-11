@@ -2,11 +2,64 @@ import React, {useState, useContext, useEffect}  from 'react'
 import {Link} from 'react-router-dom'
 
 import AuthContext from '../context/auth/AuthContext'
+import AlertaContext from '../context/alertas/AlertaContext'
+
 
 export default function Registro(props) {
 
   //Extraer los valores del context
+
+  const alertaContext = useContext(AlertaContext)
+  const { alerta, mostrarAlerta } = AlertaContext
+
+  const authContext = useContext(AuthContext)
+  const {mensaje, autenticado, iniciarSesion} = authContext;
+
+  useEffect(()=>{
+    if(autenticado){
+      props.history.push('/proyectos')
+    }
+    if(mensaje){
+      mostrarAlerta(mensaje.msg, mensaje.categoria)
+    }
+
+  },[mensaje, autenticado, props.history])
+
+  // State para iniciar sesión
+
+  const [usuario, guardarUsuario] = useState({
+      email:"",
+      password:""
+  })
+
+  // Extraer de usuario
+
+  const {username, email, password} = usuario
   
+  const onChange = (e) => {
+    guardarUsuario({
+      ...usuario,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  // Cuando el usuario quiera iniciar sesión
+
+  const onSubmit = e => {
+    e.preventDefault()
+
+    //validar que no haya campos vacíos
+    if(email.trim() === "" || password.trim() === ""){
+      return mostrarAlerta("Todos los campos son obligatorios", "alerta-error")
+    }
+
+    // pasarlo al action
+
+    iniciarSesion({email, password})
+
+  }
+
+
     return (
         <div>
             
@@ -25,44 +78,79 @@ export default function Registro(props) {
         
 
         <div className="mt-6">
-          <form action="localhost:4000/usuarios" method="POST" className="space-y-6">
+
+        {alerta ?
+            (
+              <div className={`alerta ${alerta.categoria}`}>
+                    {alerta.msg}
+              </div> 
+            )
+            : null}
+
+
+          <form 
+          
+            onSubmit={onSubmit} 
+            className="space-y-6"
+            >
           <div>
-              <label for="username" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
                 Usuario
               </label>
               <div className="mt-1">
-                <input id="username" name="username" type="text" autocomplete="Usuario" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"/>
+                <input 
+                  type="text"
+                  id="username" 
+                  name="username" 
+                  placeholder="Tu nombre de usuario"
+                  onChange={onChange}
+                  value={username} 
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
               </div>
             </div>
 
             <div>
-              <label for="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 Correo electrónico
               </label>
               <div className="mt-1">
-                <input id="email" name="email" type="email" autocomplete="email" required className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"/>
+                <input 
+                type="email"
+                id="email" 
+                name="email" 
+                placeholder="Tu correo electrónico" 
+                onChange={onChange}
+                value={email}
+                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"                  
+                />
               </div>
             </div>
 
             <div className="space-y-1">
-              <label for="password" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 Contraseña
               </label>
               <div className="mt-1">
-                <input id="password" name="password" type="password" autocomplete="current-password" required className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"/>
+                <input 
+                    type="password"
+                    id="password" 
+                    name="password" 
+                    placeholder="Tu contraseña" 
+                    onChange={onChange} 
+                    value={password}
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"                      
+                    />
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
-              
-
-              
-            </div>
-
             <div>
-              <button type="submit" className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-900 bg-c-yellow hover:bg-c-peach focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-c-peach">
-                Regístrate
-              </button>
+              <Link to={'/registro'} 
+                  type="submit" 
+                  value="Regístrate"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-900 bg-c-yellow hover:bg-c-peach focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-c-peach">
+                      Regístrate
+              </Link>
             </div>
 
             <div className="text-sm">
