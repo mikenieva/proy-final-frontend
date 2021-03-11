@@ -1,4 +1,5 @@
 import React, {useReducer} from 'react'
+import axios from 'axios'
 
 import AuthContext from './AuthContext'
 import AuthReducer from './AuthReducer'
@@ -40,6 +41,7 @@ const AuthState = props => {
 
             // Obtener el usuario
             usuarioAutenticado()
+
         } catch(error){
             //console.log(error.response.data.msg)
             const alerta = {
@@ -80,8 +82,17 @@ const AuthState = props => {
     // Cuando el usuario inicia sesión
     const iniciarSesion = async datos => {
         try{
-            const respuesta = await
-            clienteAxios.post('/auth', datos)
+            const service = axios.create({
+                baseURL: "http://localhost:3000",
+                withCredentials: true,
+              });
+            
+              const enviarRespuesta = async(e)=>{
+                  e.preventDefault()
+                  const token = localStorage.getItem("token")}
+
+                  const respuesta = await service.post("http://localhost:3000/auth", {headers: {'x-auth-token':token}})
+              
 
             dispatch({
                 type: LOGIN_EXITOSO,

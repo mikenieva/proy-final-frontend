@@ -30,9 +30,9 @@ function App() {
               <Route exact path="/" component={IniciarSesion}/>
               <Route exact path="/registro" component={Registro}/>
               <Route exact path="/registro-exitoso" component={RegistroExitoso}/>
-              <Route exact path="/gastos/:id" component={Transaccion}/>
-              <Route exact path="/usuarios/:id" component={Tablero}/>
-              <Route exact path="/editar-perfil/:id" component={EditarPerfil}/>
+              <Route exact path="/gastos/" component={Transaccion}/>
+              <Route exact path="/usuarios/" component={Tablero}/>
+              <Route exact path="/editar-perfil/" component={EditarPerfil}/>
 
           </Switch>
 

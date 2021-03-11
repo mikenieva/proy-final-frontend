@@ -8,35 +8,38 @@ import AlertaContext from '../context/alertas/AlertaContext'
 export default function Registro(props) {
 
   //Extraer los valores del context
-
   const alertaContext = useContext(AlertaContext)
   const { alerta, mostrarAlerta } = AlertaContext
 
+  // State para iniciar sesión
+  const [usuario, guardarUsuario] = useState({
+        username:"",
+        email:"",
+        password:""
+  })
+
   const authContext = useContext(AuthContext)
-  const {mensaje, autenticado, iniciarSesion} = authContext;
+  const { mensaje, autenticado, registrarUsuario} = authContext;
+
+  // En caso de que el usuario se haya autenticado o registrado, un registro duplicado
 
   useEffect(()=>{
     if(autenticado){
-      props.history.push('/proyectos')
+      props.history.push('/usuarios')
     }
+
     if(mensaje){
       mostrarAlerta(mensaje.msg, mensaje.categoria)
     }
 
   },[mensaje, autenticado, props.history])
 
-  // State para iniciar sesión
-
-  const [usuario, guardarUsuario] = useState({
-      email:"",
-      password:""
-  })
 
   // Extraer de usuario
 
   const {username, email, password} = usuario
   
-  const onChange = (e) => {
+  const onChange = e => {
     guardarUsuario({
       ...usuario,
       [e.target.name]: e.target.value
@@ -49,21 +52,45 @@ export default function Registro(props) {
     e.preventDefault()
 
     //validar que no haya campos vacíos
-    if(email.trim() === "" || password.trim() === ""){
-      return mostrarAlerta("Todos los campos son obligatorios", "alerta-error")
+    if(
+      username.trim() === "" ||
+      email.trim() === "" || 
+      password.trim() === ""
+      
+      ){
+
+      mostrarAlerta("Todos los campos son obligatorios", "alerta-error")
+        return 
+    }
+
+    // password mínimo de 6 caracteres
+
+    if(password.length<6) {
+      mostrarAlerta("El password debe ser de al menos 6 caracteres","alerta-error")
+      return 
     }
 
     // pasarlo al action
-
-    iniciarSesion({email, password})
-
+    registrarUsuario({
+      username,
+      email,
+      password
+    })
+    
   }
 
 
     return (
         <div>
             
-           
+            {alerta ?
+            (
+              <div className={`alerta ${alerta.categoria}`}>
+                    {alerta.msg}
+              </div> 
+            )
+            : null}
+
 <div className="min-h-screen bg-white flex">
   <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
     <div className="mx-auto w-full max-w-sm lg:w-96">
@@ -79,13 +106,7 @@ export default function Registro(props) {
 
         <div className="mt-6">
 
-        {alerta ?
-            (
-              <div className={`alerta ${alerta.categoria}`}>
-                    {alerta.msg}
-              </div> 
-            )
-            : null}
+        
 
 
           <form 
@@ -144,21 +165,21 @@ export default function Registro(props) {
               </div>
             </div>
 
-            <div>
-              <Link to={'/registro'} 
+            <div className="space-y-3">
+              <input to={'/registro'} 
                   type="submit" 
                   value="Regístrate"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-900 bg-c-yellow hover:bg-c-peach focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-c-peach">
-                      Regístrate
-              </Link>
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-900 bg-c-yellow hover:bg-c-peach focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-c-peach"/>
+              
             </div>
+            </form>
 
             <div className="text-sm">
                 <p>¿Ya eres usuario? <a href="/" className="font-medium text-c-yellow hover:text-c-peach">
                   Inicia sesión aquí
                 </a></p>
               </div>
-          </form>
+          
 
         </div>
       </div>
