@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 
 import {
     REGISTRO_EXITOSO,
@@ -36,7 +37,7 @@ export default (state, action) => {
             }
         
             case OBTENER_USUARIO:
-                return{
+                return {
                     ...state,
                     autenticado: true,
                     usuario: action.payload

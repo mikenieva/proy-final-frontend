@@ -63,12 +63,16 @@ const AuthState = props => {
             tokenAuth(token)
         }
 
-        try {
+        try {                       
             const respuesta = await clienteAxios.get('/auth')
 
+            console.log("Respuesta:", respuesta)
+
+            // YA TENGO LOS DATOS, AHORA QUÉ? 
+            // TOCA MODIFICAR EL ESTADO GLOBAL
             dispatch({
                 type: OBTENER_USUARIO,
-                payload: respuesta.data.usuario
+                payload: respuesta.data.usuario // PAYLOAD = ARGUMENTO ---> action.payload
             })
 
         } catch(error) {
@@ -83,7 +87,7 @@ const AuthState = props => {
         try{
             
             const respuesta = await clienteAxios.post('/auth', datos)
-            
+
             dispatch({
                 type: LOGIN_EXITOSO,
                 payload: respuesta.data
