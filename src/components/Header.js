@@ -1,8 +1,32 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
+import AuthContext from '../context/auth/AuthContext'
 
-export default function Header() {
+
+
+
+
+export default function Header(props) {
+
+
+  // Extraer los valores del context
+
+  const authContext = useContext(AuthContext)
+
+  const {mensaje, autenticado, cerrarSesion} = authContext
+
+    useEffect(()=> {
+      if(autenticado){
+        props.history.push('/')
+      }
+
+    }, [autenticado, props.history])
+
+    // pasarlo a la acción
+    cerrarSesion()
+
     return (
   
+
     <div>
         {/* <!-- This example requires Tailwind CSS v2.0+ --> */}
 <div>
@@ -84,7 +108,8 @@ export default function Header() {
         {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
         <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Editar perfil</a>
 
-        <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Cerrar sesión</a>
+        <button  
+        name= "cerrar-sesion" onClick={() => {cerrarSesion()}} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Cerrar sesión</button>
 
 
 
