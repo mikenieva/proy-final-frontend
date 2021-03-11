@@ -1,6 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react'
 
-import { Link } from 'react-router-dom'
 
 // import AlertaContext from '../context/alertas/AlertaContext'
 
@@ -15,8 +14,10 @@ export default function IniciarSesion(props) {
   // const {alerta, mostrarAlerta} = alertaContext
 
   const authContext = useContext(AuthContext)
+
   const {mensaje, autenticado, iniciarSesion} = authContext;
 
+  
   useEffect(()=>{
     if(autenticado){
       props.history.push('/usuarios')

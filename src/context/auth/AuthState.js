@@ -82,7 +82,7 @@ const AuthState = props => {
     const iniciarSesion = async datos => {
         try{
             
-            const respuesta = await clienteAxios.post('/api/auth', datos)
+            const respuesta = await clienteAxios.post('/auth', datos)
             
             dispatch({
                 type: LOGIN_EXITOSO,

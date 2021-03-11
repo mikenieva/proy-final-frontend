@@ -1,5 +1,4 @@
 import React, {useState, useContext, useEffect}  from 'react'
-import {Link} from 'react-router-dom'
 
 import AuthContext from '../context/auth/AuthContext'
 // import AlertaContext from '../context/alertas/AlertaContext'
@@ -25,7 +24,7 @@ export default function Registro(props) {
 
   useEffect(()=>{
     if(autenticado){
-      props.history.push('/usuarios')
+      props.history.push('/registro-exitoso')
     }
 
     // if(mensaje){
