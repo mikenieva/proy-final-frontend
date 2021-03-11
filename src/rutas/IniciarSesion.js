@@ -2,7 +2,7 @@ import React, {useState, useContext, useEffect} from 'react'
 
 import { Link } from 'react-router-dom'
 
-import AlertaContext from '../context/alertas/AlertaContext'
+// import AlertaContext from '../context/alertas/AlertaContext'
 
 import AuthContext from '../context/auth/AuthContext'
 
@@ -10,9 +10,9 @@ import AuthContext from '../context/auth/AuthContext'
 export default function IniciarSesion(props) {
 
   // Extraer los valores del context
-  const alertaContext = useContext(AlertaContext)
+  // const alertaContext = useContext(AlertaContext)
 
-  const {alerta, mostrarAlerta} = alertaContext
+  // const {alerta, mostrarAlerta} = alertaContext
 
   const authContext = useContext(AuthContext)
   const {mensaje, autenticado, iniciarSesion} = authContext;
@@ -22,9 +22,9 @@ export default function IniciarSesion(props) {
       props.history.push('/usuarios')
     }
 
-    if(mensaje){
-      mostrarAlerta(mensaje.msg, mensaje.categoria)
-    }
+    // if(mensaje){
+    //   mostrarAlerta(mensaje.msg, mensaje.categoria)
+    // }
     
   }, [mensaje, autenticado, props.history])
 
@@ -52,8 +52,9 @@ export default function IniciarSesion(props) {
   // validar que no haya campos vacíos
     if(email.trim() === "" ||
     password.trim() === ""){
-      return mostrarAlerta("Todos los campos son obligatorios",
-      "alerta-error")
+      console.log("Todos los campos son obligatorios")
+      // return mostrarAlerta("Todos los campos son obligatorios",
+      // "alerta-error")
     }
 
     // pasarlo al action
@@ -75,11 +76,11 @@ export default function IniciarSesion(props) {
       
       <div>
 
-      {alerta ?
+      {/* {alerta ?
         (
       <div className={`alerta${alerta.categoria}`}>{alerta.msg}</div>
         )
-        :null}
+        :null} */}
 
         <img className="h-20 w-auto" src="https://res.cloudinary.com/robtc/image/upload/v1615398315/di%CC%81a_cero_3_i3hxsg.png" alt="Workflow"/>
         <h2 className="mt-6 text-3xl font-extrabold text-gray-900">

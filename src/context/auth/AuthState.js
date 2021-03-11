@@ -1,5 +1,4 @@
 import React, {useReducer} from 'react'
-import axios from 'axios'
 
 import AuthContext from './AuthContext'
 import AuthReducer from './AuthReducer'
@@ -44,13 +43,13 @@ const AuthState = props => {
 
         } catch(error){
             //console.log(error.response.data.msg)
-            const alerta = {
-                msg: error.response.data.msg,
-                categoria: 'alerta-error'
-            }
+            // const alerta = {
+            //     msg: error.response.data.msg,
+            //     categoria: 'alerta-error'
+            // }
             dispatch({
                 type: REGISTRO_ERROR,
-                payload: alerta
+                // payload: alerta
             })
         }
     }
@@ -82,18 +81,9 @@ const AuthState = props => {
     // Cuando el usuario inicia sesión
     const iniciarSesion = async datos => {
         try{
-            const service = axios.create({
-                baseURL: "http://localhost:3000",
-                withCredentials: true,
-              });
             
-              const enviarRespuesta = async(e)=>{
-                  e.preventDefault()
-                  const token = localStorage.getItem("token")}
-
-                  const respuesta = await service.post("http://localhost:3000/auth", {headers: {'x-auth-token':token}})
-              
-
+            const respuesta = await clienteAxios.post('/api/auth', datos)
+            
             dispatch({
                 type: LOGIN_EXITOSO,
                 payload: respuesta.data
@@ -103,13 +93,13 @@ const AuthState = props => {
 
         } catch(error){
             console.log(error)
-            const alerta = {
-                msg: error.response.data.msg,
-                categoria:'alerta-error'
-            }
+            // const alerta = {
+            //     msg: error.response.data.msg,
+            //     categoria:'alerta-error'
+            //}
             dispatch({
-                type: LOGIN_ERROR,
-                payload: alerta
+                type: LOGIN_ERROR
+                // payload: alerta
             })
         }
     }

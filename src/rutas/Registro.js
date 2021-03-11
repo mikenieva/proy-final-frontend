@@ -2,14 +2,14 @@ import React, {useState, useContext, useEffect}  from 'react'
 import {Link} from 'react-router-dom'
 
 import AuthContext from '../context/auth/AuthContext'
-import AlertaContext from '../context/alertas/AlertaContext'
+// import AlertaContext from '../context/alertas/AlertaContext'
 
 
 export default function Registro(props) {
 
   //Extraer los valores del context
-  const alertaContext = useContext(AlertaContext)
-  const { alerta, mostrarAlerta } = AlertaContext
+  // const alertaContext = useContext(AlertaContext)
+  // const { alerta, mostrarAlerta } = AlertaContext
 
   // State para iniciar sesión
   const [usuario, guardarUsuario] = useState({
@@ -28,11 +28,11 @@ export default function Registro(props) {
       props.history.push('/usuarios')
     }
 
-    if(mensaje){
-      mostrarAlerta(mensaje.msg, mensaje.categoria)
-    }
+    // if(mensaje){
+    //   mostrarAlerta(mensaje.msg, mensaje.categoria)
+    // }
 
-  },[mensaje, autenticado, props.history])
+  },[/*mensaje,*/ autenticado, props.history])
 
 
   // Extraer de usuario
@@ -40,6 +40,7 @@ export default function Registro(props) {
   const {username, email, password} = usuario
   
   const onChange = e => {
+    console.log(usuario)
     guardarUsuario({
       ...usuario,
       [e.target.name]: e.target.value
@@ -59,14 +60,18 @@ export default function Registro(props) {
       
       ){
 
-      mostrarAlerta("Todos los campos son obligatorios", "alerta-error")
-        return 
+        console.log("Todos los campos son obligatorios")
+        return
+
+      // mostrarAlerta("Todos los campos son obligatorios", "alerta-error")
+      //   return 
     }
 
     // password mínimo de 6 caracteres
 
     if(password.length<6) {
-      mostrarAlerta("El password debe ser de al menos 6 caracteres","alerta-error")
+      console.log("El password debe ser de al menos 6 caracteres")
+      // mostrarAlerta("El password debe ser de al menos 6 caracteres","alerta-error")
       return 
     }
 
@@ -83,13 +88,13 @@ export default function Registro(props) {
     return (
         <div>
             
-            {alerta ?
+            {/* {alerta ?
             (
               <div className={`alerta ${alerta.categoria}`}>
                     {alerta.msg}
               </div> 
             )
-            : null}
+            : null} */}
 
 <div className="min-h-screen bg-white flex">
   <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">

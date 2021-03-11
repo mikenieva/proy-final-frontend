@@ -1,48 +1,48 @@
-import React, {useReducer} from 'react'
-import AlertaReducer from './AlertaReducer'
-import AlertaContext from './AlertaContext'
+// import React, {useReducer} from 'react'
+// import AlertaReducer from './AlertaReducer'
+// import AlertaContext from './AlertaContext'
 
-import {MOSTRAR_ALERTA, OCULTAR_ALERTA} from '../../types'
+// import {MOSTRAR_ALERTA, OCULTAR_ALERTA} from '../../types'
 
 
-const AlertaState = props => {
+// const AlertaState = props => {
 
-    const initialState = {
-        alerta: null
-    }
+//     const initialState = {
+//         alerta: null
+//     }
 
-    const [state, dispatch] = useReducer(AlertaReducer, initialState)
+//     const [state, dispatch] = useReducer(AlertaReducer, initialState)
 
-    const mostrarAlerta = (msg, categoria) => {
-        console.log(msg)
+//     const mostrarAlerta = (msg, categoria) => {
+//         console.log(msg)
 
-        dispatch({
-            type: MOSTRAR_ALERTA,
-            payload: {
-                msg,
-                categoria
-            }
-        })
+//         dispatch({
+//             type: MOSTRAR_ALERTA,
+//             payload: {
+//                 msg,
+//                 categoria
+//             }
+//         })
 
-        setTimeout(()=>{
-            dispatch({
-                type: OCULTAR_ALERTA
-            })
-        }, 5000)
-    }
+//         setTimeout(()=>{
+//             dispatch({
+//                 type: OCULTAR_ALERTA
+//             })
+//         }, 5000)
+//     }
 
-    return (
+//     return (
 
-        <AlertaContext.Provider
-            value={{
-                alerta: state.alerta,
-                mostrarAlerta
-            }}
-            >
-                {props.children}
+//         <AlertaContext.Provider
+//             value={{
+//                 alerta: state.alerta,
+//                 mostrarAlerta
+//             }}
+//             >
+//                 {props.children}
 
-            </AlertaContext.Provider>
-    )
-}
+//             </AlertaContext.Provider>
+//     )
+// }
 
-export default AlertaState
+// export default AlertaState
