@@ -14,15 +14,15 @@ export default function Header(props) {
 
   const {mensaje, autenticado, cerrarSesion} = authContext
 
-    useEffect(()=> {
-      if(autenticado){
-        props.history.push('/')
-      }
+    // useEffect(()=> {
+    //   if(autenticado){
+    //     // props.history.push('/')
+    //   }
 
-    }, [autenticado, props.history])
+    // }, [autenticado, props.history])
 
     // pasarlo a la acción
-    cerrarSesion()
+    // cerrarSesion()
 
     return (
   
@@ -109,7 +109,7 @@ export default function Header(props) {
         <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Editar perfil</a>
 
         <button  
-        name= "cerrar-sesion" onClick={() => {cerrarSesion()}} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Cerrar sesión</button>
+        name= "cerrar-sesion"  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Cerrar sesión</button>
 
 
 
