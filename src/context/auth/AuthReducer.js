@@ -18,7 +18,7 @@ export default (state, action) => {
         case LOGIN_EXITOSO:
         case REGISTRO_EXITOSO:
             localStorage.setItem('token', action.payload.token)
-
+            
             return{
                 ...state,
                 autenticado: true,
