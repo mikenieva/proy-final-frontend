@@ -6,7 +6,10 @@ import {
     OBTENER_USUARIO,
     LOGIN_EXITOSO,
     LOGIN_ERROR,
-    CERRAR_SESION
+    CERRAR_SESION,
+    ACTUALIZAR_INGRESOS,
+    ERROR_ACTUALIZAR_INGRESOS
+    
 } from '../../types/index'
 
 export default (state, action) => {
@@ -41,6 +44,12 @@ export default (state, action) => {
                     ...state,
                     autenticado: true,
                     usuario: action.payload
+                }
+            
+            case ACTUALIZAR_INGRESOS:
+                return {
+                    ...state,
+                    datosUsuario: action.payload
                 }
             
             default:

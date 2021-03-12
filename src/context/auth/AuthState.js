@@ -12,7 +12,9 @@ import {
     OBTENER_USUARIO,
     LOGIN_EXITOSO,
     LOGIN_ERROR,
-    CERRAR_SESION
+    CERRAR_SESION,
+    ACTUALIZAR_INGRESOS,
+    ERROR_ACTUALIZAR_INGRESOS
 } from '../../types/index'
 
 const AuthState = props => {
@@ -22,8 +24,7 @@ const AuthState = props => {
         token: localStorage.getItem('token'),
         autenticado: null,
         usuario: null, // info del usuario
-        mensaje: null, // relacionado con las alertas
-        cargando: true
+        datosUsuario: null
     }
 
     const [state, dispatch] = useReducer(AuthReducer,initialState)
@@ -42,14 +43,8 @@ const AuthState = props => {
             usuarioAutenticado()
 
         } catch(error){
-            //console.log(error.response.data.msg)
-            // const alerta = {
-            //     msg: error.response.data.msg,
-            //     categoria: 'alerta-error'
-            // }
             dispatch({
                 type: REGISTRO_ERROR,
-                // payload: alerta
             })
         }
     }
@@ -108,6 +103,25 @@ const AuthState = props => {
         }
     }
 
+    // Actualizar los ingresos cuando se ingresen
+
+    const actualizarIngresos = async (datos) => {
+        try {
+            const respuestaApi = await clienteAxios.get('/usuarios',datos)
+            console.log("Usuario con ingresos:",respuestaApi)
+
+            dispatch({
+                type: ACTUALIZAR_INGRESOS,
+                payload: respuestaApi.data.usuario
+            })
+        } catch(error) {
+            console.log(error)
+            dispatch({
+                type: ERROR_ACTUALIZAR_INGRESOS
+            })
+            
+        }
+    }
     // Cierra la sesión del usuario
     const cerrarSesion = () => {
         dispatch({
@@ -120,12 +134,12 @@ const AuthState = props => {
             token: state.token,
             autenticado: state.autenticado,
             usuario: state.usuario,
-            mensaje: state.mensaje,
-            cargando: state.cargando,
+            datosUsuario: state.datosUsuario,
             registrarUsuario,
             iniciarSesion,
             usuarioAutenticado,
-            cerrarSesion
+            cerrarSesion,
+            actualizarIngresos
         }}>
             {props.children}
             </AuthContext.Provider>

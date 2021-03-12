@@ -24,7 +24,7 @@ export default function Registro(props) {
 
   useEffect(()=>{
     if(autenticado){
-      props.history.push('/registro-exitoso')
+      props.history.push('/usuarios')
     }
 
     // if(mensaje){

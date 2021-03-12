@@ -9,7 +9,7 @@ import AuthContext from './../context/auth/AuthContext'
 export default function Tablero(props) {
 
   const authContext = useContext(AuthContext)
-  const {autenticado, usuarioAutenticado} = authContext;
+  const {autenticado, usuarioAutenticado, actualizarIngresos, datosUsuario} = authContext;
 
     useEffect(() => {
       usuarioAutenticado() // Verifica si tengo token
@@ -18,7 +18,9 @@ export default function Tablero(props) {
         props.history.push('/') // REDIRECTS CON REACT-ROUTER-DOM
       }
 
-    }, [autenticado])
+      actualizarIngresos() //
+
+    }, [autenticado,datosUsuario])
 
     return (
 
