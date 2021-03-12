@@ -53,7 +53,7 @@ export default function Graficas() {
         labels: ["Renta", "Despensa", "Transporte", "Ahorro"],
         datasets: [
           {
-            data: [3800, 1500, 750, 380],
+            data: [1900, 1500, 750, 380],
             backgroundColor: chartColors,
             hoverBackgroundColor: chartColors
           }
