@@ -20,7 +20,7 @@ export default function Gastos() {
         expenseConcept: null,
         expenseDate: null
     })
-    
+
     const { expenseAmount, expenseConcept, expenseDate } = expenseItem
 
 
@@ -41,7 +41,7 @@ export default function Gastos() {
 
 
     return (
-        <div>
+        <div class="space-y-3 px-4 py-1 max-w-4xl">
                         <div class="flex justify-end mb-2 mt-2">
                             <p className= "text-gray-900 hover:text-c-peach focus:outline-none" onClick={()=>estatusTercerBoton()}>Agregar gasto</p>    
                         </div>
