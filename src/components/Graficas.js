@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
 import { Doughnut } from "react-chartjs-2";
 import { chartColors } from "../colors.js";
 import "../App.css";
@@ -9,7 +7,6 @@ import "../App.css";
 
 export default function Graficas() {
     
-    let chartInstance = null;
 
     const options = {
         legend: {
@@ -23,29 +20,6 @@ export default function Graficas() {
         }
       };
       
-      const pieOptions = {
-        legend: {
-          display: false,
-          position: "right",
-          legendCallback: function(chart) {
-            // Return the HTML string here.
-            console.log(chart);
-            return [
-              <ul>
-                <li>z</li>
-                <li>zzzz</li>
-                <li>ppp</li>
-                <li>adasda</li>
-              </ul>
-            ];
-          }
-        },
-        elements: {
-          arc: {
-            borderWidth: 0
-          }
-        }
-      };
       
       const data = {
         maintainAspectRatio: false,

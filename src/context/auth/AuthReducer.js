@@ -8,7 +8,6 @@ import {
     LOGIN_ERROR,
     CERRAR_SESION,
     REGISTRAR_INGRESOS,
-    ERROR_REGISTRAR_INGRESOS
 
 } from '../../types/index'
 
