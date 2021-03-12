@@ -13,10 +13,8 @@ import IniciarSesion from './rutas/IniciarSesion'
 import Registro from './rutas/Registro'
 import RegistroExitoso from './rutas/RegistroExitoso'
 import Tablero from './rutas/Tablero'
-import Transaccion from './rutas/Transaccion'
 
 import AuthState from './context/auth/AuthState'
-import AlertaState from './context/alertas/AlertaState'
 
 
 function App() {
@@ -30,7 +28,6 @@ function App() {
               <Route exact path="/" component={IniciarSesion}/>
               <Route exact path="/registro" component={Registro}/>
               <Route exact path="/registro-exitoso" component={RegistroExitoso}/>
-              <Route exact path="/gastos/" component={Transaccion}/>
               <Route exact path="/usuarios/" component={Tablero}/>
               <Route exact path="/editar-perfil/" component={EditarPerfil}/>
 

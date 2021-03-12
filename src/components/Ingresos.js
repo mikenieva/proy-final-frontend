@@ -1,28 +1,50 @@
+import axios from 'axios';
 import React, {useContext, useState, useEffect} from 'react'
-import { Router } from 'react-router-dom';
-import clientesAxios from '../config/axios'
 
 import AuthContext from '../context/auth/AuthContext'
 
-  
-
-export default function IngresosYPresupuestos(props) {
+export default function Ingresos(props) {
 
   const authContext = useContext(AuthContext)
-  const {autenticado, usuarioAutenticado, actualizarIngresos, datosUsuario} = authContext;
+  const {autenticado, usuarioAutenticado, registrarIngresos} = authContext;
+
+  const [sumaIngresos, setSumaIngresos] = useState()
 
     useEffect(() => {
 
-      usuarioAutenticado() // Verifica si tengo token
-
-      if(!autenticado){
-        props.history.push('/usuarios') // REDIRECTS CON REACT-ROUTER-DOM
+      const getSumaIngresos = async() =>{
+        const respuestaServidor = await axios.get("http://localhost:4000/ingresos/total")
+        console.log ("sumaIngresos:",respuestaServidor)
+        setSumaIngresos(respuestaServidor)
       }
+      getSumaIngresos()
+      //usuarioAutenticado() // Verifica si tengo token
 
-    }, [autenticado,datosUsuario,props.history])
+      // if(!autenticado){
+      //   props.history.push('/') // REDIRECTS CON REACT-ROUTER-DOM
+      // }
+
+
+    // useEffect(()=> {
+    //     const getLibros= async () => {
+    //         const respuestaServidor= await axios.get("http://localhost:3001/libros")
+    //         console.log(respuestaServidor)
+    //         setlistaLibros(respuestaServidor.data)
+    //         console.log(listaLibros)
+    //     }
+    //     getLibros()
+    // },[])
+
+
+    },[])
 
  const [buttonState, setButtonState] = useState(false)
-
+ 
+ const estatusBoton = ()=> {
+  if(buttonState == false) {
+      setButtonState(true)
+  }
+}
 
  const [incomeItem, setIncomeItem] = useState({
     incomeAmount: null,
@@ -30,21 +52,8 @@ export default function IngresosYPresupuestos(props) {
     incomeDate: null
 })
 
-
- const estatusBoton = ()=> {
-    if(buttonState == false) {
-        setButtonState(true)
-    }
-}
-
-
-const registrarIngreso = ()=> {
-    setButtonState(false)
-
-}
-
-
 const {incomeAmount, incomeSource, incomeDate} = incomeItem
+
 
   
   const onChange = e => {
@@ -61,11 +70,6 @@ const {incomeAmount, incomeSource, incomeDate} = incomeItem
   const onSubmit = e => {
     e.preventDefault()
 
-    // const data = {
-    //     ...incomeItem,
-    //     income 
-    // }
-
 
     //validar que no haya campos vacíos
     if(
@@ -79,6 +83,13 @@ const {incomeAmount, incomeSource, incomeDate} = incomeItem
         return
     }
 
+    registrarIngresos({
+      incomeAmount,
+      incomeSource,
+      incomeDate
+    })
+
+    setButtonState(false)
 
   }
     return (
@@ -95,7 +106,7 @@ const {incomeAmount, incomeSource, incomeDate} = incomeItem
                         
 
                             <div class="px-4 py-3 font-bold text-gray-900 bg-c-yellow hover:bg-c-peach">
-                                    <p>Tus ingresos  [Total: $ 9,800]</p>
+                                    <p>Tus ingresos  [Total: {sumaIngresos}]</p>
                                     
                             </div>
                             {!buttonState ? <p></p> : 
@@ -106,7 +117,7 @@ const {incomeAmount, incomeSource, incomeDate} = incomeItem
                     <input onChange={onChange} value={incomeSource} name="incomeSource" className="h-8 w-9/12 pl-7 pr-12 sm:text-sm  border border-gray-600" placeholder="Concepto: sueldo,ventas, etc"/><br/>
                     <input onChange={onChange} value={incomeDate} name="incomeDate" type="date" className="h-8 w-9/12"/>
                     <div className="flex justify-start mx-8 py-2 ">
-                        <button onClick={registrarIngreso} type="submit" className="border-gray-700 bg-gray-300 text-gray-700 h-8 w-9/12">Registra tu ingreso</button>
+                        <button onClick={registrarIngresos} type="submit" className="border-gray-700 bg-gray-300 text-gray-700 h-8 w-9/12">Registra tu ingreso</button>
                     </div>
                 </form>
     }

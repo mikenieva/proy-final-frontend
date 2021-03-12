@@ -7,9 +7,9 @@ import {
     LOGIN_EXITOSO,
     LOGIN_ERROR,
     CERRAR_SESION,
-    ACTUALIZAR_INGRESOS,
-    ERROR_ACTUALIZAR_INGRESOS
-    
+    REGISTRAR_INGRESOS,
+    ERROR_REGISTRAR_INGRESOS
+
 } from '../../types/index'
 
 export default (state, action) => {
@@ -46,7 +46,7 @@ export default (state, action) => {
                     usuario: action.payload
                 }
             
-            case ACTUALIZAR_INGRESOS:
+            case REGISTRAR_INGRESOS:
                 return {
                     ...state,
                     datosUsuario: action.payload

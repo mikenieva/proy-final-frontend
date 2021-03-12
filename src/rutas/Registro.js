@@ -1,15 +1,11 @@
 import React, {useState, useContext, useEffect}  from 'react'
 
 import AuthContext from '../context/auth/AuthContext'
-// import AlertaContext from '../context/alertas/AlertaContext'
 
 
 export default function Registro(props) {
 
-  //Extraer los valores del context
-  // const alertaContext = useContext(AlertaContext)
-  // const { alerta, mostrarAlerta } = AlertaContext
-
+  
   // State para iniciar sesión
   const [usuario, guardarUsuario] = useState({
         username:"",
@@ -17,8 +13,9 @@ export default function Registro(props) {
         password:""
   })
 
+  //Extraer los valores del context
   const authContext = useContext(AuthContext)
-  const { mensaje, autenticado, registrarUsuario} = authContext;
+  const {autenticado, registrarUsuario} = authContext;
 
   // En caso de que el usuario se haya autenticado o registrado, un registro duplicado
 
@@ -27,12 +24,7 @@ export default function Registro(props) {
       props.history.push('/usuarios')
     }
 
-    // if(mensaje){
-    //   mostrarAlerta(mensaje.msg, mensaje.categoria)
-    // }
-
-  },[/*mensaje,*/ autenticado, props.history])
-
+  },[autenticado, props.history])
 
   // Extraer de usuario
 
@@ -86,14 +78,6 @@ export default function Registro(props) {
 
     return (
         <div>
-            
-            {/* {alerta ?
-            (
-              <div className={`alerta ${alerta.categoria}`}>
-                    {alerta.msg}
-              </div> 
-            )
-            : null} */}
 
 <div className="min-h-screen bg-white flex">
   <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">

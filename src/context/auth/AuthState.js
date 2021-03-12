@@ -13,8 +13,8 @@ import {
     LOGIN_EXITOSO,
     LOGIN_ERROR,
     CERRAR_SESION,
-    ACTUALIZAR_INGRESOS,
-    ERROR_ACTUALIZAR_INGRESOS
+    REGISTRAR_INGRESOS,
+    ERROR_REGISTRAR_INGRESOS
 } from '../../types/index'
 
 const AuthState = props => {
@@ -34,6 +34,7 @@ const AuthState = props => {
     const registrarUsuario = async datos => {
         try{
             const respuesta = await clienteAxios.post('/usuarios',datos)
+
             dispatch({
                 type: REGISTRO_EXITOSO,
                 payload: respuesta.data
@@ -80,7 +81,6 @@ const AuthState = props => {
     // Cuando el usuario inicia sesión
     const iniciarSesion = async datos => {
         try{
-            
             const respuesta = await clienteAxios.post('/auth', datos)
 
             dispatch({
@@ -105,19 +105,22 @@ const AuthState = props => {
 
     // Actualizar los ingresos cuando se ingresen
 
-    const actualizarIngresos = async (datos) => {
+    const registrarIngresos = async (datos) => {
         try {
-            const respuestaApi = await clienteAxios.get('/usuarios',datos)
-            console.log("Usuario con ingresos:",respuestaApi)
+            // const respuestaApi = await clienteAxios.get('/usuarios',datos)
+            // console.log("Usuario con ingresos:",respuestaApi)
+            
+            const respuesta = await clienteAxios.post('/ingresos')
+            console.log("Ingreso registrado:",respuesta)
 
             dispatch({
-                type: ACTUALIZAR_INGRESOS,
-                payload: respuestaApi.data.usuario
+                type: REGISTRAR_INGRESOS,
+                payload: respuesta.data.usuario
             })
         } catch(error) {
             console.log(error)
             dispatch({
-                type: ERROR_ACTUALIZAR_INGRESOS
+                type: ERROR_REGISTRAR_INGRESOS
             })
             
         }
@@ -139,7 +142,7 @@ const AuthState = props => {
             iniciarSesion,
             usuarioAutenticado,
             cerrarSesion,
-            actualizarIngresos
+            registrarIngresos
         }}>
             {props.children}
             </AuthContext.Provider>

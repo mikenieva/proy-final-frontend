@@ -9,18 +9,13 @@ import AuthContext from '../context/auth/AuthContext'
 
 export default function IniciarSesion(props) {
 
-  // Extraer los valores del context
-  // const alertaContext = useContext(AlertaContext)
-
-  // const {alerta, mostrarAlerta} = alertaContext
 
   const authContext = useContext(AuthContext)
-  const {mensaje, autenticado, iniciarSesion, usuarioAutenticado} = authContext;
+  const {autenticado, iniciarSesion, usuarioAutenticado} = authContext;
 
 
   
   useEffect(()=>{
-    console.log("hola")
     
     usuarioAutenticado() // Verifica si tengo token
     
