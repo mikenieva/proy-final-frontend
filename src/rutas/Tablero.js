@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Ingresos from '../components/Ingresos'
 import Graficas from '../components/Graficas'
