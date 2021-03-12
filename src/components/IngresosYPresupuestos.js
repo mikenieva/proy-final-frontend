@@ -102,12 +102,13 @@ const {budgetAmount, budgetConcept} = budgetItem
             
   
                     <div id="Contenedor ing y pres" class="space-y-3 px-4 py-1 max-w-4xl">
+                    <div class="flex justify-end mb-2 mt-2">
+                    
+                        <p className= "text-gray-900 hover:text-c-peach focus:outline-none" onClick={()=>estatusBoton()}>Agregar ingreso</p>
+                        </div>
                         <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
                             
-                        <div class="flex justify-end mb-2 mt-2">
-                            <p className= "text-gray-900 hover:text-c-peach focus:outline-none" onClick={()=>estatusBoton()}>Agregar ingreso</p>
-                              
-                        </div>
+                        
 
                             <div class="px-4 py-3 font-bold text-gray-900 bg-c-yellow hover:bg-c-peach">
                                     <p>Tus ingresos</p>
@@ -181,6 +182,8 @@ const {budgetAmount, budgetConcept} = budgetItem
 
             
     </div>
+
+            
 
 
         

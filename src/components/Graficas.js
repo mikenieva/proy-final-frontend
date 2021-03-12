@@ -79,7 +79,7 @@ export default function Graficas() {
     return (
         <div>
                 <div className="App">
-      <h1 className="font-bold">Tu presupuesto en gráficas</h1>
+      <h1 className="py-3 font-bold">Tus gastos en gráficas</h1>
       <div style={styles.relative} className="canvas-container">
         <Doughnut data={data} options={options} />
         <div style={styles.pieContainer}>
