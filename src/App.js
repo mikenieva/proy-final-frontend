@@ -14,22 +14,32 @@ import Registro from './rutas/Registro'
 import RegistroExitoso from './rutas/RegistroExitoso'
 import Tablero from './rutas/Tablero'
 
+import Header from './components/Header'
+
 import AuthState from './context/auth/AuthState'
 
 
-function App() {
+function App(props) {
   return (
     <>
     <AuthState>
-
         <Router>
- 
           <Switch>
               <Route exact path="/" component={IniciarSesion}/>
               <Route exact path="/registro" component={Registro}/>
               <Route exact path="/registro-exitoso" component={RegistroExitoso}/>
-              <Route exact path="/usuarios/" component={Tablero}/>
-              <Route exact path="/editar-perfil/" component={EditarPerfil}/>
+              <Route path={"/"} render={() => (
+                  <>
+                    <Header />
+                      <Switch>
+                        <Route exact path="/usuarios/" component={Tablero}/>
+                        <Route exact path="/editar-perfil/" component={EditarPerfil}/>
+                      </Switch>
+                  </>
+                )} 
+              />
+
+              
 
           </Switch>
 

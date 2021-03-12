@@ -1,23 +1,25 @@
 import React, {useContext, useEffect} from 'react'
 import AuthContext from '../context/auth/AuthContext'
-
+import { useHistory } from "react-router-dom";
 
 export default function Header(props) {
 
-
-  // Extraer los valores del context
-
   const authContext = useContext(AuthContext)
+  const {autenticado, cerrarSesion} = authContext;
 
-  const {autenticado, cerrarSesion} = authContext
+  let history = useHistory()
 
-    //  useEffect(()=> {
-    //    if(autenticado){
-    //       props.history.push('/usuarios')
-    //    }
+    useEffect(() => {
+      if(!autenticado){
+        history.push('/') // REDIRECTS CON REACT-ROUTER-DOM
+      }
 
-    //  }, [autenticado, props.history])
+    }, [])
 
+    const cerrarUsuario = () => {
+      cerrarSesion()
+      window.location.reload();
+    }
     
 
     return (
@@ -37,7 +39,7 @@ export default function Header(props) {
               {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
               <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Editar perfil</a>
 
-              <button onClick={cerrarSesion()} class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Cerrar sesión</button>
+              <button onClick={ () => cerrarUsuario() } class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Cerrar sesión</button>
 
 
 

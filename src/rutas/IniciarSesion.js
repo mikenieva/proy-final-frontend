@@ -16,9 +16,7 @@ export default function IniciarSesion(props) {
 
   
   useEffect(()=>{
-    
-    usuarioAutenticado() // Verifica si tengo token
-    
+    usuarioAutenticado()
     if(autenticado){
       props.history.push('/usuarios') // REDIRECTS CON REACT-ROUTER-DOM
     }
