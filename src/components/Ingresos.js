@@ -17,11 +17,11 @@ export default function Ingresos() {
     return (
         <div>
         <p>hola</p>
-        {statusLink ? <p>Mostrar</p>}
+        
+        
             <ul class="space-y-3">
                 <li class="bg-white shadow overflow-hidden px-4 py-4 sm:px-6 sm:rounded-md">
 
-                    <a onClick={()=>mostrarInput()}name="agIngreso">Agregar ingreso</a>
 
                     {/* <form>
                         <label></label>
