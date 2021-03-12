@@ -6,7 +6,7 @@ import AuthContext from '../context/auth/AuthContext'
 export default function Ingresos(props) {
 
   const authContext = useContext(AuthContext)
-  const {autenticado, usuarioAutenticado, registrarIngresos} = authContext;
+  const {registrarIngresos} = authContext;
 
   const [sumaIngresos, setSumaIngresos] = useState()
 
@@ -41,7 +41,7 @@ export default function Ingresos(props) {
  const [buttonState, setButtonState] = useState(false)
  
  const estatusBoton = ()=> {
-  if(buttonState == false) {
+  if(buttonState === false) {
       setButtonState(true)
   }
 }

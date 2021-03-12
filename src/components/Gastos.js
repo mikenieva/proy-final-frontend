@@ -10,19 +10,12 @@ export default function Gastos() {
     const [thirdButton, setThirdButton] = useState(false)
 
     const estatusTercerBoton = () => {
-        if(thirdButton == false) {
+        if(thirdButton === false) {
             setThirdButton(true)
         }
     }
 
-    const [expenseItem, setExpenseItem] = useState({
-        expenseAmount: null,
-        expenseConcept: null,
-        expenseDate: null
-    })
-
-    const { expenseAmount, expenseConcept, expenseDate } = expenseItem
-
+  
 
     
     const registrarGasto = ()=>{
